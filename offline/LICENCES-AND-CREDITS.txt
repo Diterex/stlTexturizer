@@ -1,0 +1,72 @@
+LICENCES AND CREDITS - unofficial BumpMesh offline build
+=========================================================
+
+This is an UNOFFICIAL offline build of BumpMesh by Stefan Hermann (CNC Kitchen).
+It is not operated, endorsed or supported by CNC Kitchen.
+Official tool: https://bumpmesh.com
+Original source: https://github.com/CNCKitchen/stlTexturizer
+Modified by Diterex on 2026-10-23 from BumpMesh v1.4.3.
+
+
+WHAT YOU MAY DO
+---------------
+BumpMesh is released under the GNU Affero General Public Licence v3.0
+(AGPL-3.0-only). In short:
+  * Using it yourself, on your own computer, for any purpose including
+    commercial work: no obligations. The models you make are yours.
+  * Giving copies to other people, or running it on a server or network so
+    that other people can use it: you must offer those people the complete
+    source code, including your changes, under the same AGPL licence.
+This is a plain-language summary, not legal advice. The full text is in the
+file LICENSE in the main folder of the source repository.
+
+
+WHAT IS IN THIS BUILD AND UNDER WHAT TERMS
+------------------------------------------
+BumpMesh (index.html, changelog.html, style.css, logo.png, js/, and the
+textures marked "ship with BumpMesh")
+  Copyright (c) 2026 CNCKitchen (Stefan Hermann) and contributors.
+  Licence: AGPL-3.0-only. Full text: LICENSE.
+
+three.js 0.170.0 (vendor/three) - MIT, Copyright (c) 2010-2024 three.js authors.
+  Licence text: vendor/three/LICENSE. Unmodified.
+fflate 0.8.2 (vendor/fflate) - MIT, Copyright (c) 2023 Arjun Barrett.
+  Licence text: vendor/fflate/LICENSE. Unmodified.
+
+Textures (textures/), as marked in BumpMesh's own gallery:
+  * 29 are based on Hero Patterns by Steve Schoger, licensed CC BY 4.0
+    (attribution required), converted to height maps.
+    https://heropatterns.com/  https://creativecommons.org/licenses/by/4.0/
+  * 11 come from ambientCG and Poly Haven and are CC0 (public domain).
+  * 6 were made with Filter Forge. https://www.filterforge.com/
+  * The remaining textures ship with BumpMesh under its AGPL licence.
+  The same attribution text is shown inside the app, in the texture gallery.
+
+Offline additions (MIT, Copyright (c) 2026 Diterex; see LICENSE-additions.txt):
+  offline/server/main.zig, "offline/START BumpMesh.bat",
+  offline/make-offline-zip.ps1 and the offline documentation.
+  bumpmesh-server.exe is compiled from main.zig. It contains no BumpMesh code.
+  It is built with the Zig compiler, whose standard library (MIT licensed,
+  Copyright (c) Zig contributors) is compiled into the program.
+
+
+WHAT WAS CHANGED FROM UPSTREAM v1.4.3
+-------------------------------------
+Every change is a commit on the offline-build branch, so the full list is
+always available with:  git diff a6d6d6e offline-build   (a6d6d6e = upstream v1.4.3; or the GitHub compare
+view). Summary, all made 2026-10-23:
+  * index.html: the web-library addresses (three.js, fflate) now point at the
+    local vendor/ folder; the CDN preconnect hint was removed; the header and
+    source links say this is an unofficial build; the Source code line in the
+    Licence popup also names this build's repository.
+  * js/threeCompat.js: the path workers use to load three.js points at vendor/.
+  * js/stepWorker.js: STEP/STP import is replaced by stubs that report that
+    it is not included (the original downloads a library at the moment of use).
+  * The Imprint and Privacy popup was replaced by an "About this unofficial
+    build" notice. The original names Stefan Hermann as the operator of the
+    official website, which is not true of this build. The change was made in
+    index.html and in all 16 language files in js/i18n/.
+  * CNAME removed so that enabling GitHub Pages cannot claim bumpmesh.com.
+  * vendor/ added; offline/ added; README.md replaced by an offline-build
+    README (the original is kept as README-upstream.md).
+Nothing else in BumpMesh was changed.
