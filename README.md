@@ -23,7 +23,7 @@ Tested 2026-10-23: a STEP part made in FreeCAD (30 x 20 x 10 mm block with a 8 m
 
 ## Download and run
 
-A ready-made `BumpMesh-Offline.zip` will be attached to a GitHub Release (none yet). Unzip it and double-click `START BumpMesh.bat`. Full instructions are inside the zip in `README.txt`. To build the zip yourself from this branch, run `offline/make-offline-zip.ps1` (it needs `bumpmesh-server.exe`, see below).
+Download `BumpMesh-Offline.zip` from the [Releases page](https://github.com/Diterex/stlTexturizer/releases), unzip it, and double-click `START BumpMesh.bat`. Each release lists the SHA-256 checksum of the zip and of the exe in `SHA256SUMS.txt`. Full instructions are inside the zip in `README.txt`. To build the zip yourself from this branch, run `offline/make-offline-zip.ps1` (it needs `bumpmesh-server.exe`, see below).
 
 **About `bumpmesh-server.exe`.** It is compiled from `offline/server/main.zig` with the [Zig](https://ziglang.org) compiler. The exe is not stored in git, only attached to releases with its SHA-256 checksum. You do not need it to run BumpMesh: any static web server that serves this folder works, and you can build the exe yourself:
 
