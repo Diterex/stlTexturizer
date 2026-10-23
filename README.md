@@ -19,7 +19,13 @@ Every change is a separate commit on the `offline-build` branch, so `git diff a6
 
 Download `BumpMesh-Offline.zip` from the Releases page, unzip it, and double-click `START BumpMesh.bat`. Full instructions are inside the zip in `README.txt`. To build the zip yourself from this branch, run `offline/make-offline-zip.ps1` (it needs `bumpmesh-server.exe`, see below).
 
-**About `bumpmesh-server.exe`.** It is compiled from `offline/server/main.zig` with the [Zig](https://ziglang.org) compiler. The exe is not stored in git, only attached to releases with its SHA-256 checksum. The Zig version used for the first build was not recorded, so a third party cannot yet reproduce the checksum from source. Treat the exe as unverified and prefer to build it yourself. You do not need it to run BumpMesh: any static web server that serves this folder works.
+**About `bumpmesh-server.exe`.** It is compiled from `offline/server/main.zig` with the [Zig](https://ziglang.org) compiler. The exe is not stored in git, only attached to releases with its SHA-256 checksum. You do not need it to run BumpMesh: any static web server that serves this folder works, and you can build the exe yourself:
+
+```
+zig build-exe offline/server/main.zig -O ReleaseSafe -target x86_64-windows-gnu
+```
+
+Use Zig **0.14.1** (the source needs Zig 0.14 or older). Rebuilt on 2026-10-23 and compared with the exe from the original bundle: the program code is byte for byte identical. Zig writes a new random timestamp and debug-file ID into every build, so the raw SHA-256 differs each time. `offline/verify-exe.ps1` blanks exactly those fields before hashing, and the original exe and three fresh rebuilds all give `7CA9AE7411F13A304495D0730CC6DFAD8E45098B73254B12C9F4974BC27203AC`. A build in a different optimisation mode gives a different value, so the check does tell builds apart.
 
 ## Licences
 

@@ -45,7 +45,8 @@ Textures (textures/), as marked in BumpMesh's own gallery:
 Offline additions (MIT, Copyright (c) 2026 Diterex; see LICENSE-additions.txt):
   offline/server/main.zig, "offline/START BumpMesh.bat",
   offline/make-offline-zip.ps1 and the offline documentation.
-  bumpmesh-server.exe is compiled from main.zig. It contains no BumpMesh code.
+  bumpmesh-server.exe is compiled from main.zig (Zig 0.14.1, ReleaseSafe, x86_64-windows-gnu;
+  see README.md for how to rebuild and verify it). It contains no BumpMesh code.
   It is built with the Zig compiler, whose standard library (MIT licensed,
   Copyright (c) Zig contributors) is compiled into the program.
 
