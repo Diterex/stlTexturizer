@@ -21,9 +21,9 @@ Push-Location $repo
 try {
   if (git status --porcelain) { throw "Uncommitted changes in $repo. Commit or stash them first so the zip matches a commit." }
   $commit = (git rev-parse --short HEAD).Trim()
-  # App files straight from the commit (git archive keeps the exact committed bytes, line endings included).
+  # App files straight from the commit, byte for byte (autocrlf is switched off so LICENSE etc. match upstream exactly).
   $tmpZip = Join-Path $stage 'app.zip'
-  git archive --format=zip -o $tmpZip HEAD -- index.html changelog.html style.css logo.png js textures vendor LICENSE
+  git -c core.autocrlf=false -c core.eol=lf archive --format=zip -o $tmpZip HEAD -- index.html changelog.html style.css logo.png js textures vendor LICENSE
   if ($LASTEXITCODE -ne 0) { throw "git archive failed" }
   Expand-Archive $tmpZip $app
   Copy-Item (Join-Path $app 'LICENSE') (Join-Path $root 'LICENSE')
