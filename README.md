@@ -6,8 +6,8 @@ Based on BumpMesh v1.4.3 (upstream commit `a6d6d6e`). Modified 2026-10-23 by Dit
 
 ## What was changed from upstream
 
-1. **Web libraries ship locally.** Three.js 0.170.0 and fflate 0.8.2 were loaded from a public CDN. Unmodified copies are now in `vendor/`, and the page and the background workers point at them.
-2. **STEP/STP import is stubbed out.** Choosing a STEP file now shows a message that it is not included. STL, OBJ and 3MF still work. See "Why STEP files are not supported" below.
+1. **Web libraries ship locally.** Three.js 0.170.0, fflate 0.8.2 and the STEP reader meshStep 0.1.0 were loaded from a public CDN (jsDelivr). Unmodified copies are now in `vendor/`, and the page and the background workers point at them.
+2. **STEP/STP import works offline.** The official page fetches the STEP reader at the moment you pick a STEP file, which an offline PC cannot do. This build includes the same release (see "STEP files" below). STL, OBJ, 3MF and STEP all open.
 3. **The Imprint and Privacy popup was replaced** by an "About this unofficial build" notice. The original names Stefan Hermann as the operator of the official website, which is not true of this build. His original text is untouched in upstream.
 4. **The build is marked unofficial** in the header and in the source-code links.
 5. **`CNAME` was removed** so that turning on GitHub Pages here cannot claim bumpmesh.com.
@@ -15,11 +15,11 @@ Based on BumpMesh v1.4.3 (upstream commit `a6d6d6e`). Modified 2026-10-23 by Dit
 
 Every change is a separate commit on the `offline-build` branch, so `git diff a6d6d6e offline-build` shows exactly what differs from upstream. The full list is in [offline/LICENCES-AND-CREDITS.txt](offline/LICENCES-AND-CREDITS.txt).
 
-## Why STEP files are not supported
+## STEP files
 
-In the official BumpMesh, opening a STEP or STP file loads a separate library called [meshStep](https://github.com/CNCKitchen/meshStep) (also by CNC Kitchen, licensed AGPL-3.0, plain JavaScript with no dependencies and no WebAssembly). The official page fetches it from a public CDN (jsDelivr) at the moment you pick the file. An offline PC cannot reach the CDN, and this build did not bundle a copy, so the STEP reader is replaced by a clear message instead of failing silently.
+In the official BumpMesh, opening a STEP or STP file loads a separate library called [meshStep](https://github.com/CNCKitchen/meshStep) (also by CNC Kitchen, AGPL-3.0, plain JavaScript with no dependencies and no WebAssembly) from a public CDN, at the moment you pick the file. This offline build ships an unmodified copy of the same release (meshstep 0.1.0, about 800 KB of runtime files in `vendor/meshstep/`) and loads it from there. The copy comes from the npm registry package, and its download matched npm's published SHA-512 and SHA-1 checksums. The only code change is the import address in `js/stepWorker.js`.
 
-This is a limit of this build, not of BumpMesh. The library is small (roughly 2 MB) and has the same licence, so a future version of this build could include it. Until then, export your model as STL, OBJ or 3MF from your CAD program, or use the official site while online.
+Tested 2026-10-23: a STEP part made in FreeCAD (30 x 20 x 10 mm block with a 8 mm hole) imported offline at the right size with no network requests.
 
 ## Download and run
 
@@ -42,6 +42,7 @@ Use Zig **0.14.1** (the source needs Zig 0.14 or older). Zig writes a new random
 
 - **BumpMesh** (everything except `vendor/`, `offline/` and the textures' own terms): Copyright (c) 2026 CNCKitchen (Stefan Hermann) and contributors, **AGPL-3.0-only**. See [LICENSE](LICENSE). Unmodified.
 - **Three.js 0.170.0** and **fflate 0.8.2** in `vendor/`: MIT, with their licence files.
+- **meshStep 0.1.0** in `vendor/meshstep/`: Copyright CNC Kitchen and contributors, AGPL-3.0-only, with its licence file. Unmodified.
 - **Textures** (`textures/`): mixed. 29 are based on Hero Patterns by Steve Schoger (CC BY 4.0, attribution required, converted to height maps), 11 are CC0 from ambientCG and Poly Haven, 6 were made with Filter Forge, and the rest ship with BumpMesh.
 - **`offline/` additions** (server, launcher, scripts): MIT, Copyright (c) 2026 Diterex. See [offline/LICENSE-additions.txt](offline/LICENSE-additions.txt).
 

@@ -32,6 +32,10 @@ three.js 0.170.0 (vendor/three) - MIT, Copyright (c) 2010-2024 three.js authors.
   Licence text: vendor/three/LICENSE. Unmodified.
 fflate 0.8.2 (vendor/fflate) - MIT, Copyright (c) 2023 Arjun Barrett.
   Licence text: vendor/fflate/LICENSE. Unmodified.
+meshStep 0.1.0 (vendor/meshstep) - the STEP reader, by CNC Kitchen and contributors.
+  Licence: AGPL-3.0-only. Licence text: vendor/meshstep/LICENSE. Unmodified runtime
+  files (dist/*.js) from the npm package; its download matched npm's published
+  SHA-512 and SHA-1 checksums. Source: https://github.com/CNCKitchen/meshStep
 
 Textures (textures/), as marked in BumpMesh's own gallery:
   * 29 are based on Hero Patterns by Steve Schoger, licensed CC BY 4.0
@@ -62,11 +66,8 @@ view). Summary, all made 2026-10-23:
     canonical/og:url tags that claim bumpmesh.com are removed; the Source code line in the
     Licence popup also names this build's repository.
   * js/threeCompat.js: the path workers use to load three.js points at vendor/.
-  * js/stepWorker.js: STEP/STP import is replaced by stubs that report that
-    it is not included. Reason: the original loads the meshStep library
-    (CNC Kitchen, AGPL-3.0, plain JavaScript) from the jsDelivr CDN at the
-    moment a STEP file is opened, and this build does not bundle a copy.
-    It could be added in a later version.
+  * js/stepWorker.js: the import address of the STEP reader (meshStep 0.1.0) now
+    points at vendor/meshstep instead of the jsDelivr CDN. Same release, unmodified.
   * The Imprint and Privacy popup was replaced by an "About this unofficial
     build" notice. The original names Stefan Hermann as the operator of the
     official website, which is not true of this build. The change was made in
@@ -74,6 +75,6 @@ view). Summary, all made 2026-10-23:
   * CNAME removed so that enabling GitHub Pages cannot claim bumpmesh.com.
   * js/i18n/*.js: the removed Imprint keys; changelog.html: canonical/og:url removed,
     title marked unofficial, dated note in the header comment.
-  * vendor/ added; offline/ added; .gitattributes added; README.md replaced by an
+  * vendor/ added (three, fflate, meshstep); offline/ added; .gitattributes added; README.md replaced by an
     offline-build README (the original is kept as README-upstream.md).
 Nothing else in BumpMesh was changed.

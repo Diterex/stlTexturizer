@@ -23,13 +23,13 @@
 // worker cannot process a cancel message mid-import. The main thread
 // terminates and respawns instead (see stepLoader.js).
 
-// OFFLINE BUILD (modified 2026-10-23): STEP/STP import is NOT included. The original code imported
-// meshStep from the jsDelivr CDN here, which needs internet access, and no
-// copy is bundled in this build. These stubs fail loudly instead of silently reaching for the network.
-const NOT_BUNDLED = 'STEP/STP import is not included in this unofficial offline build. The STEP reader (meshStep) is normally downloaded from the internet when you open a STEP file, and this build does not bundle a copy. Please export the model as STL, OBJ or 3MF from your CAD program, or use the official BumpMesh at bumpmesh.com while online.';
-const importStep = () => { throw new Error(NOT_BUNDLED); };
-const estimateStepSize = () => { throw new Error(NOT_BUNDLED); };
-const autoTessellation = () => { throw new Error(NOT_BUNDLED); };
+// OFFLINE BUILD (modified 2026-10-23): the original imported meshStep from the jsDelivr CDN here.
+// This build loads the same release (meshstep 0.1.0, AGPL-3.0, from the npm registry) from vendor/.
+import {
+  importStep,
+  estimateStepSize,
+  autoTessellation,
+} from '../vendor/meshstep/dist/index.js';
 import { resolveStepSettings, stepResultToSoup, summarizeDiagnostics } from './stepConvert.js';
 
 self.onmessage = (e) => {
