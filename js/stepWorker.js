@@ -23,11 +23,13 @@
 // worker cannot process a cancel message mid-import. The main thread
 // terminates and respawns instead (see stepLoader.js).
 
-import {
-  importStep,
-  estimateStepSize,
-  autoTessellation,
-} from 'https://cdn.jsdelivr.net/npm/meshstep@0.1.0/+esm';
+// OFFLINE BUILD (modified 2026-10-23): STEP/STP import is NOT included. The original code imported
+// meshStep from the jsDelivr CDN here, which cannot work without internet
+// access. These stubs fail loudly instead of silently reaching for the network.
+const NOT_BUNDLED = 'STEP/STP import is not included in the offline BumpMesh bundle. Please use an STL, OBJ or 3MF file.';
+const importStep = () => { throw new Error(NOT_BUNDLED); };
+const estimateStepSize = () => { throw new Error(NOT_BUNDLED); };
+const autoTessellation = () => { throw new Error(NOT_BUNDLED); };
 import { resolveStepSettings, stepResultToSoup, summarizeDiagnostics } from './stepConvert.js';
 
 self.onmessage = (e) => {

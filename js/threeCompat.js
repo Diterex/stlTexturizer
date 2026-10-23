@@ -15,12 +15,13 @@
  *      HTML spec, so a bare 'three' import throws there).
  * The try/catch below uses the bare specifier wherever it resolves (page,
  * Node — same module instance as the rest of the app, so instanceof checks
- * hold) and falls back to the CDN URL only inside workers.
+ * hold) and falls back to the bundled local copy only inside workers.
  *
- * KEEP THE URL IN SYNC with the import map in index.html. The page will
- * usually have the file in HTTP cache already, so the worker fetch is cheap.
+ * KEEP THE PATH IN SYNC with the import map in index.html.
  */
-const CDN_THREE = 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+// OFFLINE BUILD (modified 2026-10-23): was the jsDelivr CDN URL. Workers ignore the page's import
+// map, so this local path is what the export/preview workers actually load.
+const CDN_THREE = '../vendor/three/build/three.module.js';
 
 let THREE;
 try {
