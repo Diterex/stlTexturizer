@@ -24,9 +24,9 @@
 // terminates and respawns instead (see stepLoader.js).
 
 // OFFLINE BUILD (modified 2026-10-23): STEP/STP import is NOT included. The original code imported
-// meshStep from the jsDelivr CDN here, which cannot work without internet
-// access. These stubs fail loudly instead of silently reaching for the network.
-const NOT_BUNDLED = 'STEP/STP import is not included in the offline BumpMesh bundle. Please use an STL, OBJ or 3MF file.';
+// meshStep from the jsDelivr CDN here, which needs internet access, and no
+// copy is bundled in this build. These stubs fail loudly instead of silently reaching for the network.
+const NOT_BUNDLED = 'STEP/STP import is not included in this unofficial offline build. The STEP reader (meshStep) is normally downloaded from the internet when you open a STEP file, and this build does not bundle a copy. Please export the model as STL, OBJ or 3MF from your CAD program, or use the official BumpMesh at bumpmesh.com while online.';
 const importStep = () => { throw new Error(NOT_BUNDLED); };
 const estimateStepSize = () => { throw new Error(NOT_BUNDLED); };
 const autoTessellation = () => { throw new Error(NOT_BUNDLED); };

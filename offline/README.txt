@@ -36,8 +36,13 @@ anyway". The program only talks to your own browser on this PC (127.0.0.1).
 
 WHAT IS NOT INCLUDED
 --------------------
-STEP and STP files cannot be opened in this offline edition. STL, OBJ and 3MF
-work, all 101 textures are included, and you can export STL and 3MF.
+STEP and STP files cannot be opened in this offline edition. In the official
+BumpMesh the STEP reader (a library called meshStep) is downloaded from the
+internet at the moment you open a STEP file, and this build does not include a
+copy. If you need to texture a STEP model, export it as STL, OBJ or 3MF from
+your CAD program first (or use bumpmesh.com while online).
+STL, OBJ and 3MF work, all 101 textures are included, and you can export STL
+and 3MF.
 Exported models go to your normal Downloads folder.
 
 

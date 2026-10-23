@@ -63,7 +63,10 @@ view). Summary, all made 2026-10-23:
     Licence popup also names this build's repository.
   * js/threeCompat.js: the path workers use to load three.js points at vendor/.
   * js/stepWorker.js: STEP/STP import is replaced by stubs that report that
-    it is not included (the original downloads a library at the moment of use).
+    it is not included. Reason: the original loads the meshStep library
+    (CNC Kitchen, AGPL-3.0, plain JavaScript) from the jsDelivr CDN at the
+    moment a STEP file is opened, and this build does not bundle a copy.
+    It could be added in a later version.
   * The Imprint and Privacy popup was replaced by an "About this unofficial
     build" notice. The original names Stefan Hermann as the operator of the
     official website, which is not true of this build. The change was made in

@@ -7,13 +7,19 @@ Based on BumpMesh v1.4.3 (upstream commit `a6d6d6e`). Modified 2026-10-23 by Dit
 ## What was changed from upstream
 
 1. **Web libraries ship locally.** Three.js 0.170.0 and fflate 0.8.2 were loaded from a public CDN. Unmodified copies are now in `vendor/`, and the page and the background workers point at them.
-2. **STEP/STP import is stubbed out.** Upstream downloads a further library when you import a STEP file, which cannot work offline. Choosing a STEP file now reports that it is not included. STL, OBJ and 3MF still work.
+2. **STEP/STP import is stubbed out.** Choosing a STEP file now shows a message that it is not included. STL, OBJ and 3MF still work. See "Why STEP files are not supported" below.
 3. **The Imprint and Privacy popup was replaced** by an "About this unofficial build" notice. The original names Stefan Hermann as the operator of the official website, which is not true of this build. His original text is untouched in upstream.
 4. **The build is marked unofficial** in the header and in the source-code links.
 5. **`CNAME` was removed** so that turning on GitHub Pages here cannot claim bumpmesh.com.
 6. **A small local server and launcher were added (not upstream code).** `offline/server/main.zig` is a static file server that listens on 127.0.0.1 only. `START BumpMesh.bat` starts it and opens your browser.
 
 Every change is a separate commit on the `offline-build` branch, so `git diff a6d6d6e offline-build` shows exactly what differs from upstream. The full list is in [offline/LICENCES-AND-CREDITS.txt](offline/LICENCES-AND-CREDITS.txt).
+
+## Why STEP files are not supported
+
+In the official BumpMesh, opening a STEP or STP file loads a separate library called [meshStep](https://github.com/CNCKitchen/meshStep) (also by CNC Kitchen, licensed AGPL-3.0, plain JavaScript with no dependencies and no WebAssembly). The official page fetches it from a public CDN (jsDelivr) at the moment you pick the file. An offline PC cannot reach the CDN, and this build did not bundle a copy, so the STEP reader is replaced by a clear message instead of failing silently.
+
+This is a limit of this build, not of BumpMesh. The library is small (roughly 2 MB) and has the same licence, so a future version of this build could include it. Until then, export your model as STL, OBJ or 3MF from your CAD program, or use the official site while online.
 
 ## Download and run
 
