@@ -57,7 +57,8 @@ always available with:  git diff a6d6d6e offline-build   (a6d6d6e = upstream v1.
 view). Summary, all made 2026-10-23:
   * index.html: the web-library addresses (three.js, fflate) now point at the
     local vendor/ folder; the CDN preconnect hint was removed; the header and
-    source links say this is an unofficial build; the Source code line in the
+    source links say this is an unofficial build; the page title is changed and the
+    canonical/og:url tags that claim bumpmesh.com are removed; the Source code line in the
     Licence popup also names this build's repository.
   * js/threeCompat.js: the path workers use to load three.js points at vendor/.
   * js/stepWorker.js: STEP/STP import is replaced by stubs that report that
