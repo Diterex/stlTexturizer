@@ -1,0 +1,205 @@
+{
+ "note": "Pinned copies of the three libraries BumpMesh loads from a CDN. Every file is checked against its SHA256 before it is used.",
+ "files": [
+  {
+   "dest": "vendor/fflate/LICENSE",
+   "url": "https://cdn.jsdelivr.net/npm/fflate@0.8.2/LICENSE",
+   "sha256": "805f6cb28bb8b6d3a0badd83c93bccd9671fa01a3b4b92b7042b0743325ac243"
+  },
+  {
+   "dest": "vendor/fflate/esm/browser.js",
+   "url": "https://cdn.jsdelivr.net/npm/fflate@0.8.2/esm/browser.js",
+   "sha256": "8cc1f687e0159e977addb6b85e274dbd11e622cf151f4fcb7b85d49622ea43e7"
+  },
+  {
+   "dest": "vendor/meshstep/LICENSE",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/LICENSE",
+   "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+  },
+  {
+   "dest": "vendor/meshstep/dist/brep/build.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/brep/build.js",
+   "sha256": "a32e40af758b82c191f9df72871a1c55b7d594e1db4ac9c645d4aa7be4696e26"
+  },
+  {
+   "dest": "vendor/meshstep/dist/brep/measure-geometry.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/brep/measure-geometry.js",
+   "sha256": "11bccb1a3738d3c055e3a9882f2e55cc0de9dbe79e5bcd131b8cec0d0128a73a"
+  },
+  {
+   "dest": "vendor/meshstep/dist/geom/curves.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/geom/curves.js",
+   "sha256": "3380208a15fe70759ddb6a774522813225111b633232a8629fbbd233bf0144e1"
+  },
+  {
+   "dest": "vendor/meshstep/dist/geom/placement.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/geom/placement.js",
+   "sha256": "55762f8b10508487f6d7ec7d848a836a0c0b878d17a68d339dcf59102a81d103"
+  },
+  {
+   "dest": "vendor/meshstep/dist/geom/surfaces.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/geom/surfaces.js",
+   "sha256": "aa6563811be449ba95da998fd9c00afa991b411e31166bbb3d88ae5b180e37ba"
+  },
+  {
+   "dest": "vendor/meshstep/dist/geom/vec.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/geom/vec.js",
+   "sha256": "7a0e9001e24baa213bf51d0a16820f74e5d42b2d1ef6f6db77ab4506358bd2c6"
+  },
+  {
+   "dest": "vendor/meshstep/dist/index.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/index.js",
+   "sha256": "0bbf64c60d7e9eb881dca091e53ae3dee15c177fc161d62583a496ab4eca4584"
+  },
+  {
+   "dest": "vendor/meshstep/dist/io/stl.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/io/stl.js",
+   "sha256": "13f2bcf59e064b3854dd67235fa22eeb4c554594aa42093518828732105f984f"
+  },
+  {
+   "dest": "vendor/meshstep/dist/io/threemf.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/io/threemf.js",
+   "sha256": "0811869ddf6db49f8ac87c18365d1f640b6a84ce25d93ac0fa9c360b61194bd3"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/attributes.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/attributes.js",
+   "sha256": "e484fff4820a18da8ab663b4c733fa33a4e3f9b4de6291625186f75b3dd95cff"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/cdt2d.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/cdt2d.js",
+   "sha256": "06a3ebc3ae25f22d4ad5f8b343a97a00bbf68227152e4b4b3039a1699018b99c"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/diag.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/diag.js",
+   "sha256": "dc742c92b2081c2214f36e9d706f34bdd14b071f914d23d270d3330f4136ecbc"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/earcut.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/earcut.js",
+   "sha256": "01c245fdf662b7497b5911f1a8da1ffb9bc3b14b25b4da280498ec7bbd52d92e"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/edge-table.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/edge-table.js",
+   "sha256": "7ccee16a84cb998ec8d7de2181601a3c49f5f428859c5e39670a931133af64ec"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/face-info.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/face-info.js",
+   "sha256": "2a0ee9e6ffa9e2b3b230b1cb8f8d4bfc21ed0e601c790e5f441fa2ba271b5f0c"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/orient.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/orient.js",
+   "sha256": "870f60bf29cfa1e11ce7fd52d026811b33a9660b9efaab588510028b3fed8815"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/refine.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/refine.js",
+   "sha256": "56801022929e64f3f60f0b1a4cbdf4e6c3e1e9894550588057df028184ce35f7"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/remesh.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/remesh.js",
+   "sha256": "15565d2dd25332c01e43aceeed5f2b9962403bd2207c54265ec78e98f1f4c244"
+  },
+  {
+   "dest": "vendor/meshstep/dist/mesh/tessellate.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/mesh/tessellate.js",
+   "sha256": "f92c0e87065c44037b273a331afee25cece5205912871372248b4a574f7124b3"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/assembly.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/assembly.js",
+   "sha256": "dde86af7628b9b52571cd60e7f3424f30c2f8b8f3a8d81c2792617cc48c20d81"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/entities.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/entities.js",
+   "sha256": "61688f06bef7f63dbfd89c6f6a29d00d8f8f4d4e6caca61bd9efc3267db43e7c"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/header.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/header.js",
+   "sha256": "65dbcb2d65b37dddc1e396561000adec535bd8fc7f16a0049d5a0622f4291235"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/measure.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/measure.js",
+   "sha256": "36f63fb7689c3895e564e9a465d04633ff43781272982886a4889191702ab61b"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/parser.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/parser.js",
+   "sha256": "86a0e5422b3035b5ca5dbc4e5313d15c030c5c3b9fcc71dd75dcd6fdeed91770"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/structure.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/structure.js",
+   "sha256": "6210aaba57edd5ddbece2df32c1acb8fa08305f952faaedc69e863f1c27fd371"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/styles.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/styles.js",
+   "sha256": "c2aff25bb232bf8b7c43af9b1a02e17dd24ffbf77482f6d4e07b70feb07ea65a"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/tokenizer.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/tokenizer.js",
+   "sha256": "6b3b5be03bb3d45415f8b99546cf66e683fd9d4026449fdd4947386d186367b2"
+  },
+  {
+   "dest": "vendor/meshstep/dist/step/units.js",
+   "url": "https://cdn.jsdelivr.net/npm/meshstep@0.1.0/dist/step/units.js",
+   "sha256": "374a5850d8a27e0af29307067233d9ee250872cef4e5aae29e29982e112b54a0"
+  },
+  {
+   "dest": "vendor/three/LICENSE",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/LICENSE",
+   "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+  },
+  {
+   "dest": "vendor/three/build/three.module.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+   "sha256": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb"
+  },
+  {
+   "dest": "vendor/three/examples/jsm/controls/OrbitControls.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/controls/OrbitControls.js",
+   "sha256": "80efaadea4f8a636a65fb0bd08bfef62f3d93a0bb94e2e7500f23176c5c07f4e"
+  },
+  {
+   "dest": "vendor/three/examples/jsm/controls/TransformControls.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/controls/TransformControls.js",
+   "sha256": "9848ad589dfcf5f3769d0836472cb37cc46e6e0b36eb42ebcf7c898d0072e8ec"
+  },
+  {
+   "dest": "vendor/three/examples/jsm/lines/LineMaterial.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineMaterial.js",
+   "sha256": "4a58808a6e3a48f2a98eb2a410022ae648f801eaae89d457fcd662b077a7cf27"
+  },
+  {
+   "dest": "vendor/three/examples/jsm/lines/LineSegments2.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegments2.js",
+   "sha256": "9dcce823f86d7f00c4faa8c80ea3833fa86bf4957f394a1f64f3b126f6eea661"
+  },
+  {
+   "dest": "vendor/three/examples/jsm/lines/LineSegmentsGeometry.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegmentsGeometry.js",
+   "sha256": "213a12e0e1ea878495d4998817cb83b1945441f19194267dba108c3a9e8f31ac"
+  },
+  {
+   "dest": "vendor/three/examples/jsm/loaders/OBJLoader.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/loaders/OBJLoader.js",
+   "sha256": "d7623bf8959fdbb95302730d5fe1510484b6d16ed975c90f43312ee57546c540"
+  },
+  {
+   "dest": "vendor/three/examples/jsm/loaders/STLLoader.js",
+   "url": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/loaders/STLLoader.js",
+   "sha256": "a0a83c88b269c94e25b690fae770d350c4728c81853195186976be7af0f8a3b3"
+  }
+ ]
+}
