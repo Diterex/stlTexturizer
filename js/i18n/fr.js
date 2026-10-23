@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2026 CNCKitchen (Stefan Hermann) and contributors
  * SPDX-License-Identifier: AGPL-3.0-only
+ * Modified 2026-10-23 for the unofficial offline build (see offline/LICENCES-AND-CREDITS.txt); not by CNC Kitchen. Imprint keys removed/replaced.
  */
 
 export default {

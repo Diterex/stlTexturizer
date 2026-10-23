@@ -1,3 +1,4 @@
+// Modified 2026-10-23 for the unofficial offline build (see offline/LICENCES-AND-CREDITS.txt); not by CNC Kitchen. Imprint keys removed.
 export default {
   "theme.dark": "Ciemny motyw",
   "theme.light": "Jasny motyw",

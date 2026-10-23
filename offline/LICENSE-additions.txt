@@ -3,8 +3,8 @@ MIT License
 Copyright (c) 2026 Diterex
 
 This licence covers ONLY the files written for the unofficial offline build:
-offline/server/main.zig, "offline/START BumpMesh.bat", offline/make-offline-zip.ps1
-and the text of the offline documentation. It does NOT cover BumpMesh itself,
+offline/server/main.zig, "offline/START BumpMesh.bat", offline/make-offline-zip.ps1,
+offline/verify-exe.ps1, .gitattributes and the text of the offline documentation. It does NOT cover BumpMesh itself,
 the vendored libraries or the textures, which keep their own licences (see
 LICENSE for BumpMesh and offline/LICENCES-AND-CREDITS.txt for the rest).
 

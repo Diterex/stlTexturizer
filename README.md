@@ -17,7 +17,7 @@ Every change is a separate commit on the `offline-build` branch, so `git diff a6
 
 ## Download and run
 
-Download `BumpMesh-Offline.zip` from the Releases page, unzip it, and double-click `START BumpMesh.bat`. Full instructions are inside the zip in `README.txt`. To build the zip yourself from this branch, run `offline/make-offline-zip.ps1` (it needs `bumpmesh-server.exe`, see below).
+A ready-made `BumpMesh-Offline.zip` will be attached to a GitHub Release (none yet). Unzip it and double-click `START BumpMesh.bat`. Full instructions are inside the zip in `README.txt`. To build the zip yourself from this branch, run `offline/make-offline-zip.ps1` (it needs `bumpmesh-server.exe`, see below).
 
 **About `bumpmesh-server.exe`.** It is compiled from `offline/server/main.zig` with the [Zig](https://ziglang.org) compiler. The exe is not stored in git, only attached to releases with its SHA-256 checksum. You do not need it to run BumpMesh: any static web server that serves this folder works, and you can build the exe yourself:
 
@@ -25,7 +25,12 @@ Download `BumpMesh-Offline.zip` from the Releases page, unzip it, and double-cli
 zig build-exe offline/server/main.zig -O ReleaseSafe -target x86_64-windows-gnu
 ```
 
-Use Zig **0.14.1** (the source needs Zig 0.14 or older). Rebuilt on 2026-10-23 and compared with the exe from the original bundle: the program code is byte for byte identical. Zig writes a new random timestamp and debug-file ID into every build, so the raw SHA-256 differs each time. `offline/verify-exe.ps1` blanks exactly those fields before hashing, and the original exe and three fresh rebuilds all give `7CA9AE7411F13A304495D0730CC6DFAD8E45098B73254B12C9F4974BC27203AC`. A build in a different optimisation mode gives a different value, so the check does tell builds apart.
+Use Zig **0.14.1** (the source needs Zig 0.14 or older). Zig writes a new random timestamp and debug-file ID into every build, so the raw SHA-256 differs each time. `offline/verify-exe.ps1` blanks exactly those fields before hashing, so two builds of the same source give the same value. Checked on 2026-10-23:
+
+- The exe from the original bundle and three rebuilds of its original source all give `7CA9AE7411F13A304495D0730CC6DFAD8E45098B73254B12C9F4974BC27203AC` (program code byte for byte identical). A build in a different optimisation mode gives a different value, so the check does tell builds apart.
+- The current `offline/server/main.zig` adds stricter path checks (see below). Three fresh builds of it give `D819DA03068D85C92F8DFAEC926EA74AE0602F10BB02E0DAA4BD8A2261DD54C0`. That is the value to expect from the exe on the Releases page.
+
+**Server hardening added in this build.** The server refuses any path part that starts or ends with a dot, ends with a space, contains `<>"|*?`, or is a Windows device name (CON, NUL, COM1 and so on). It also refuses requests whose Host header is not `127.0.0.1` or `localhost`. Tested live on 2026-10-23: normal files return 200; `..`, `.. `, `...`, encoded `..`, `CON` and `NUL.js` and a foreign Host header all return 403; nothing outside the `app` folder was readable.
 
 ## Licences
 

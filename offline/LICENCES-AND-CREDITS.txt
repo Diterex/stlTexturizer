@@ -44,7 +44,7 @@ Textures (textures/), as marked in BumpMesh's own gallery:
 
 Offline additions (MIT, Copyright (c) 2026 Diterex; see LICENSE-additions.txt):
   offline/server/main.zig, "offline/START BumpMesh.bat",
-  offline/make-offline-zip.ps1 and the offline documentation.
+  offline/make-offline-zip.ps1, offline/verify-exe.ps1 and the offline documentation.
   bumpmesh-server.exe is compiled from main.zig (Zig 0.14.1, ReleaseSafe, x86_64-windows-gnu;
   see README.md for how to rebuild and verify it). It contains no BumpMesh code.
   It is built with the Zig compiler, whose standard library (MIT licensed,
@@ -69,6 +69,8 @@ view). Summary, all made 2026-10-23:
     official website, which is not true of this build. The change was made in
     index.html and in all 16 language files in js/i18n/.
   * CNAME removed so that enabling GitHub Pages cannot claim bumpmesh.com.
-  * vendor/ added; offline/ added; README.md replaced by an offline-build
-    README (the original is kept as README-upstream.md).
+  * js/i18n/*.js: the removed Imprint keys; changelog.html: canonical/og:url removed,
+    title marked unofficial, dated note in the header comment.
+  * vendor/ added; offline/ added; .gitattributes added; README.md replaced by an
+    offline-build README (the original is kept as README-upstream.md).
 Nothing else in BumpMesh was changed.

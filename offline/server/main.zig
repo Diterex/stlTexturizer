@@ -82,6 +82,46 @@ fn percentDecode(out: []u8, in: []const u8) []u8 {
     return out[0..j];
 }
 
+// Windows treats these names as devices, with or without an extension (CON, con.txt).
+fn isReservedName(seg: []const u8) bool {
+    const dot = std.mem.indexOfScalar(u8, seg, '.') orelse seg.len;
+    const stem = std.mem.trimRight(u8, seg[0..dot], " ");
+    const names = [_][]const u8{ "CON", "PRN", "AUX", "NUL", "CONIN$", "CONOUT$", "CLOCK$" };
+    for (names) |n| {
+        if (std.ascii.eqlIgnoreCase(stem, n)) return true;
+    }
+    if (stem.len == 4 and stem[3] >= '1' and stem[3] <= '9' and
+        (std.ascii.eqlIgnoreCase(stem[0..3], "COM") or std.ascii.eqlIgnoreCase(stem[0..3], "LPT"))) return true;
+    return false;
+}
+
+// One path segment must be a plain file or folder name. Anything starting or ending
+// with a dot, ending with a space, naming a device, or holding a character Windows
+// reserves is refused. Windows quietly drops trailing dots and spaces, so ".. " or
+// "..." could otherwise act like "..".
+fn segmentAllowed(seg: []const u8) bool {
+    if (seg.len == 0) return true;
+    if (seg[0] == '.' or seg[seg.len - 1] == '.' or seg[seg.len - 1] == ' ') return false;
+    if (std.mem.indexOfAny(u8, seg, "<>\"|*?") != null) return false;
+    return !isReservedName(seg);
+}
+
+// Refuse requests whose Host header is not this PC talking to itself. This blocks
+// DNS-rebinding, where a web page on another site tries to read local files.
+fn hostAllowed(head: []const u8) bool {
+    var it = std.mem.splitSequence(u8, head, "\r\n");
+    _ = it.next(); // request line
+    while (it.next()) |h| {
+        if (h.len == 0) break;
+        if (h.len > 5 and std.ascii.eqlIgnoreCase(h[0..5], "host:")) {
+            const v = std.mem.trim(u8, h[5..], " \t");
+            const host = v[0 .. std.mem.lastIndexOfScalar(u8, v, ':') orelse v.len];
+            return std.mem.eql(u8, host, "127.0.0.1") or std.ascii.eqlIgnoreCase(host, "localhost");
+        }
+    }
+    return true; // no Host header: not a browser
+}
+
 fn handle(conn: std.net.Server.Connection) void {
     defer conn.stream.close();
 
@@ -101,6 +141,11 @@ fn handle(conn: std.net.Server.Connection) void {
     var it = std.mem.tokenizeScalar(u8, line, ' ');
     const method = it.next() orelse return;
     const raw_target = it.next() orelse return;
+
+    if (!hostAllowed(req[0..n])) {
+        sendSimple(conn.stream, "403 Forbidden", "Forbidden host.\n");
+        return;
+    }
 
     const is_head = std.mem.eql(u8, method, "HEAD");
     if (!std.mem.eql(u8, method, "GET") and !is_head) {
@@ -131,7 +176,7 @@ fn handle(conn: std.net.Server.Connection) void {
     }
     var seg_it = std.mem.splitScalar(u8, rel, '/');
     while (seg_it.next()) |seg| {
-        if (std.mem.eql(u8, seg, "..")) {
+        if (!segmentAllowed(seg)) {
             sendSimple(conn.stream, "403 Forbidden", "Forbidden.\n");
             return;
         }
